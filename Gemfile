@@ -54,7 +54,10 @@ gem 'pry-debugger'
 
 #testing with rspec
 
-gem 'rspec-rails', :group => [:development, :test]
-gem "factory_girl_rails", :group => [:development, :test]
-gem "capybara", :group => [:development, :test]
-gem "email_spec", :group => :test
+group :development, :test do
+      gem 'capybara'
+      gem 'rspec-rails'
+      gem "factory_girl_rails"
+      gem 'database_cleaner'
+      gem "email_spec"
+end
