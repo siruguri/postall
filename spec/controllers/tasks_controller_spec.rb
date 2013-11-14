@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe TasksController do
 
-  describe "GET 'index'" do
+  describe "getting the index" do
     it "should be successful" do
       get 'index'
       response.should be_success
