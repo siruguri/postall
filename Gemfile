@@ -52,3 +52,9 @@ gem 'pry-remote'
 gem 'pry-stack_explorer'
 gem 'pry-debugger'
 
+#testing with rspec
+
+gem 'rspec-rails', :group => [:development, :test]
+gem "factory_girl_rails", :group => [:development, :test]
+gem "database_cleaner", :group => :test
+gem "email_spec", :group => :test
