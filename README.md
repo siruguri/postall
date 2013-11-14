@@ -1,5 +1,7 @@
 # README
 
+## Introduction
+
 This Rails app sets up the basic code for a skeleton app:
 
 * There's one model, called Task. It borrows code from a standard scaffold structure.
@@ -9,3 +11,16 @@ This Rails app sets up the basic code for a skeleton app:
   * CanCan uses a simple authentication using the Task => User association
 * Views (for Task) use HAML
 * The layout puts notice and alert at the top of the page, and a float:right element to accommodate the user session (logged-in/out) state.
+
+## How Did The App Get Here?
+
+If you are trying to do this from scratch, note that the following `rails` and `rake` commands are essential to getting the app to its current state, after your bundle is installed (though you also have to change the code obviously):
+
+    rails new baseline_rails_4_install
+    rails generate model Task title:string owner_id:integer
+    rails generate devise User
+    rails generate devise:views
+    rails g cancan:ability
+    rails g migration AddAdminToUser admin:boolean
+
+    
