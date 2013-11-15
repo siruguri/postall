@@ -10,8 +10,6 @@ require 'cancan/matchers'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-DatabaseCleaner.strategy = :truncation
-
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = false
@@ -25,7 +23,10 @@ RSpec.configure do |config|
 
 #  config.include(EmailSpec::Helpers)
 #  config.include(EmailSpec::Matchers)
-  config.include Devise::TestHelpers, type: :controller
-
   config.include Helpers
+  config.include Warden::Test::Helpers
 end
+
+DatabaseCleaner.strategy = :truncation
+
+Warden.test_mode!
