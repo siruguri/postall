@@ -17,3 +17,15 @@ feature "signed in user and resource creation" do
     task.owner_id.should eq(@user.id)
   end
 end
+
+describe "signed out user and resource creation" do
+  it "should not allow task creation for logged out users" do
+
+    logout(:user)
+
+    visit new_task_path
+    page.should have_content "not authorized"
+
+    current_path.should eq(root_path)
+  end
+end
