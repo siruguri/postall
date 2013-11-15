@@ -3,6 +3,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require "email_spec"
+require_relative 'helpers'
 
 # for CanCan
 require 'cancan/matchers'
@@ -25,4 +26,6 @@ RSpec.configure do |config|
 #  config.include(EmailSpec::Helpers)
 #  config.include(EmailSpec::Matchers)
   config.include Devise::TestHelpers, type: :controller
+
+  config.include Helpers
 end
