@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'thin'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -47,17 +46,24 @@ end
 gem 'devise'
 gem 'haml'
 gem 'cancan'
-gem 'pry'
-gem 'pry-remote'
-gem 'pry-stack_explorer'
-gem 'pry-debugger'
+
+group :development do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
+end
 
 #testing with rspec
 
-group :development, :test do
-      gem 'capybara'
-      gem 'rspec-rails'
-      gem "factory_girl_rails"
-      gem 'database_cleaner'
-      gem "email_spec"
+gem 'rspec-rails', group: [:development, :test]
+
+group :test do
+  gem 'capybara'
+  gem "factory_girl_rails"
+  gem 'database_cleaner'
+  gem "email_spec"
 end
