@@ -1,4 +1,6 @@
 TestDk::Application.routes.draw do
+  resources :locations
+
   resources :test_models
 
   get 'tasks/steal', to: 'tasks#steal'

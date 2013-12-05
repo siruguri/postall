@@ -31,20 +31,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'geocoder'
 
 gem 'devise'
-gem 'haml'
+gem 'haml-rails'
 gem 'cancan'
 
 group :development do
