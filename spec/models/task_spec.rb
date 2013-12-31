@@ -1,10 +1,8 @@
 require 'spec_helper'
 
 describe Task do
-  context 'logged out' do
-    it "should not be permitted to create a task" do
-      (Ability.new User.new).should_not be_able_to(:create, Task.new)
-    end
+  it "should not create a task with an empty title" do
+    should validate_presence_of(:title)
+    
   end
-
 end

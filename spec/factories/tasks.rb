@@ -1,7 +1,9 @@
 FactoryGirl.define do
-  factory :task do
-#    email 'example@example.com'
-    title 'This is admin\'s #1 task'
+  sequence :task_title do |n|
+    "This is Task #{n}"
+  end
 
+  factory :task do
+    task_title
   end
 end
