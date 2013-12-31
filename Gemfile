@@ -48,13 +48,17 @@ group :development do
   gem 'pry-remote'
   gem 'pry-stack_explorer'
   gem 'pry-debugger'
+
+  # This needs to be here, else rake spec will fail silently.
+  gem 'rspec-rails'
 end
 
 #testing with rspec
 
-gem 'rspec-rails', group: [:development, :test]
-
 group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+
   gem 'capybara'
   gem "factory_girl_rails"
   gem 'database_cleaner'
