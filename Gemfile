@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 source 'https://rubygems.org'
 
 gem 'thin'
@@ -39,6 +40,13 @@ gem 'geocoder'
 gem 'devise'
 gem 'haml-rails'
 gem 'cancan'
+
+gem 'resque'
+
+group :production do
+  gem 'pg'
+  gem 'activerecord-postgresql-adapter'
+end
 
 group :development do
   # Use sqlite3 as the database for Active Record
