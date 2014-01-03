@@ -1,4 +1,6 @@
 TestDk::Application.routes.draw do
+  resources :navbar_entries
+
   resources :locations
 
   resources :test_models

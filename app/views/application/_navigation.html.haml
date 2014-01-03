@@ -1,0 +1,20 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{data: {toggle: "collapse", target: ".nav-collapse"} }
+
+      = link_to 'A Basic Rails Application', root_url, :class => 'brand'
+      %ul.nav
+        - @navbar_entries.each do |entry|
+          %li
+            = link_to entry[:title], entry[:url]
+
+      .nav-collapse.pull-right
+        %ul.nav
+          - if current_user
+            %li
+              = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+          - else
+            %li
+              = link_to 'Sign In', new_user_session_path
+

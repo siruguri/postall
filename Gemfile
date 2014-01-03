@@ -42,11 +42,16 @@ gem 'haml-rails'
 gem 'cancan'
 
 gem 'resque'
+gem 'resque-scheduler'
 
 group :production do
   gem 'pg'
   gem 'activerecord-postgresql-adapter'
 end
+
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'less-rails'
 
 group :development do
   # Use sqlite3 as the database for Active Record

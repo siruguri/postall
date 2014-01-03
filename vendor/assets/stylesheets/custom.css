@@ -1,3 +1,7 @@
+.main {
+    padding-top: 70px;
+}
+
 span.flashmesgs { 
   background-color: pink;
   display: inline-block;
