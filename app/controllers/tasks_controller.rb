@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   load_and_authorize_resource
 
   def index
+    # @tasks automatically set to Product.accessible_by(current_ability)
     respond_to do |format|
       format.html #index.html.erb
       format.json { render json: @tasks }

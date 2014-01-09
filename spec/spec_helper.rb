@@ -4,6 +4,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require "email_spec"
 require_relative 'helpers'
+require 'capybara/rspec'
 require 'capybara/rails'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -11,7 +12,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # for CanCan
 require 'cancan/matchers'
 
-DatabaseCleaner.strategy = :truncation
+# Let's leave our seed data alone - note this limits the number of databses supported
+# https://github.com/bmabey/database_cleaner
+
+DatabaseCleaner.strategy = :transaction
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -24,8 +28,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-#  config.include(EmailSpec::Helpers)
-#  config.include(EmailSpec::Matchers)
   config.include Helpers
   config.include Warden::Test::Helpers
   config.include Devise::TestHelpers, type: :controller
