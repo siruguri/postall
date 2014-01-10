@@ -53,6 +53,9 @@ gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 
+gem 'formtastic'
+gem 'formtastic-bootstrap'
+
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

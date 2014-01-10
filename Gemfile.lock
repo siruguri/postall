@@ -81,6 +81,10 @@ GEM
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
     ffi (1.9.3)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+    formtastic-bootstrap (2.1.3)
+      formtastic (~> 2.2)
     geocoder (1.1.8)
     gmaps4rails (2.1.1)
     haml (4.0.4)
@@ -259,6 +263,8 @@ DEPENDENCIES
   devise
   email_spec
   factory_girl_rails
+  formtastic
+  formtastic-bootstrap
   geocoder
   gmaps4rails
   haml-rails

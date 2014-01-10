@@ -20,6 +20,12 @@ module TestDk
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # rails will fallback to config.i18n.default_locale translation
+    config.i18n.fallbacks = true
+
+    # rails will fallback to en, no matter what is set as config.i18n.default_locale
+    # config.i18n.fallbacks = [:en]
+    
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
