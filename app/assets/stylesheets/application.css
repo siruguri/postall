@@ -11,5 +11,6 @@
  *= require bootstrap_and_overrides
  *= require custom.css
  *= require_self
+ *= require formtastic-bootstrap
  *= require_tree .
  */

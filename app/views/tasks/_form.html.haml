@@ -1,17 +1,15 @@
 %h1 New Task!
 
-=form_for(@task) do |f|
-  -if @task.errors.any?
-    #error_explanation
-      %h2 There were errors.
+.row
+  = semantic_form_for @property do |f|
+    - if notice or alert
+      .alert.alert-error
+        = f.semantic_errors
 
-    %ul
-      -@task.errors.full_messages.each do |msg|
-        %li #{msg}
+    = f.inputs do
+      = f.input :title
 
-  .field
-    =f.label :title
-    =f.text_field :title
-      
-  .actions
-    =f.submit value: "Create Task"
+    = f.actions do 
+      = f.action :submit, as: :button, value: "Create Task"
+
+
