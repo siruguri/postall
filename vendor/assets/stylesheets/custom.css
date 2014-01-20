@@ -1,5 +1,5 @@
 .main {
-    padding-top: 50px;
+
 }
 
 span.flashmesgs { 
@@ -19,11 +19,4 @@ span.flashmesgs {
 #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
-}
-
-.alignleft {
-    float: left;
-}
-.alignright {
-    float: right;
 }

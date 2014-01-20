@@ -49,12 +49,11 @@ group :production do
   gem 'activerecord-postgresql-adapter'
 end
 
-gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 
 gem 'formtastic'
-gem 'formtastic-bootstrap'
+gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
 
 group :development do
   # Use sqlite3 as the database for Active Record

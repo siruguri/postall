@@ -1,15 +1,14 @@
 %h1 New Task!
 
-.row
-  = semantic_form_for @property do |f|
-    - if notice or alert
-      .alert.alert-error
-        = f.semantic_errors
+= semantic_form_for @task do |f|
+  - if notice or alert
+    .alert.alert-error
+      = f.semantic_errors
 
-    = f.inputs do
-      = f.input :title
+  = f.inputs do
+    = f.input :title
 
-    = f.actions do 
-      = f.action :submit, as: :button, value: "Create Task"
+  = f.actions do 
+    = f.action :submit, as: :button, value: "Create Task"
 
 

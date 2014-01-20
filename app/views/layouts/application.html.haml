@@ -16,10 +16,7 @@
     = csrf_meta_tags
 
   %body
-
-    .container
-      = render "navigation"
-
+    = render "navigation"
     .container.main
       -if notice or alert
         .container
@@ -27,7 +24,7 @@
           .alert.alert-info
             #{notice}
         -if alert
-          .alert.alert-error
+          .alert.alert-danger
             #{alert}
 
       = yield
