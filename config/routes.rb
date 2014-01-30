@@ -6,4 +6,11 @@ TestDk::Application.routes.draw do
   devise_for :users
 
   root to: 'tasks#index'
+
+  namespace :api do
+    namespace :v1 do
+
+
+    end
+  end
 end
