@@ -21,8 +21,10 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Needed for default layouts
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'underscore-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -33,7 +35,6 @@ group :doc do
 end
 
 gem 'gmaps4rails'
-gem 'underscore-rails'
 
 gem 'geocoder'
 
@@ -41,7 +42,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'cancan'
 
-gem 'resque'
+gem 'resque', require: 'resque/server'
 gem 'resque-scheduler'
 
 group :production do

@@ -7,6 +7,8 @@ TestDk::Application.routes.draw do
 
   root to: 'tasks#index'
 
+  mount ResqueWeb::Engine => "/resque"
+
   namespace :api do
     namespace :v1 do
 
