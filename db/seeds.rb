@@ -9,3 +9,5 @@
 User.create({email: 'admin@me.com', password: 'admin123', admin: true})
 
 NavbarEntry.create({title:"Tasks", url: '/tasks'})
+NavbarEntry.create({title:"Locations", url: '/locations'})
+NavbarEntry.create({title:"Users", url: '/profiles'})

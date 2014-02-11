@@ -5,8 +5,10 @@ TestDk::Application.routes.draw do
   
   devise_for :users
 
+  resources :users, path: 'profiles'
   root to: 'tasks#index'
 
+  ResqueWeb::Engine.eager_load!
   mount ResqueWeb::Engine => "/resque"
 
   namespace :api do

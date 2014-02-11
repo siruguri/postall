@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 source 'https://rubygems.org'
 
+ruby '2.1.0'
 gem 'thin'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -42,7 +43,8 @@ gem 'devise'
 gem 'haml-rails'
 gem 'cancan'
 
-gem 'resque', require: 'resque/server'
+gem 'resque'
+gem 'resque-web', require: 'resque_web'
 gem 'resque-scheduler'
 
 group :production do
@@ -65,7 +67,7 @@ group :development do
   gem 'pry-stack_explorer'
   gem 'pry-debugger'
 
-  # This needs to be here, else rake spec will fail silently.
+  # This needs to be here, else 'rake spec' will output nothing.
   gem 'rspec-rails'
 end
 
