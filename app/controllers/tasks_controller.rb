@@ -18,6 +18,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_strong_params params[:task])
     @task.owner=User.find_by_id current_user.id if current_user
 
+    @task.categories.build
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }

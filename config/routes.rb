@@ -1,4 +1,6 @@
 TestDk::Application.routes.draw do
+  resources :categories
+
   resources :navbar_entries
   resources :locations
   resources :tasks

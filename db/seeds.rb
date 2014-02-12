@@ -11,3 +11,10 @@ User.create({email: 'admin@me.com', password: 'admin123', admin: true})
 NavbarEntry.create({title:"Tasks", url: '/tasks'})
 NavbarEntry.create({title:"Locations", url: '/locations'})
 NavbarEntry.create({title:"Users", url: '/profiles'})
+
+c=Category.create({name: 'Urgent'})
+c=Category.create({name: 'Procrastinate'})
+t=Task.create({title: "Wash clothes"})
+
+t.categories << c
+t.save

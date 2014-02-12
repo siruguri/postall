@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140103185014) do
+ActiveRecord::Schema.define(version: 20140211180643) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.float    "lat"
@@ -25,6 +31,13 @@ ActiveRecord::Schema.define(version: 20140103185014) do
   create_table "navbar_entries", force: true do |t|
     t.string   "title"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "task_categorizations", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
