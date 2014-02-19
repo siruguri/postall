@@ -1,4 +1,11 @@
 TestDk::Application.routes.draw do
+  # Added API and Doorkeeper
+  namespace :api, defaults: {format: 'json'} do
+    resources :tasks
+  end
+
+  use_doorkeeper
+
   resources :categories
 
   resources :navbar_entries

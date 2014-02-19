@@ -12,16 +12,30 @@ class TasksController < ApplicationController
 
   def new
     @task=Task.new
+
+    @task.due_date = Date.today + 2.days
   end
 
+  def edit
+    @task = Task.find params[:id]
+    params[:task].each do |k, v|
+      @task.send("#{k}=", v)
+    end
+  end
+    
   def create
-    @task = Task.new(task_strong_params params[:task])
+    @task = Task.new params[:task]
     @task.owner=User.find_by_id current_user.id if current_user
+    
+    complete_update 'Task was successfully created.'
+  end
 
+  private
+  def complete_update message
     @task.categories.build
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @task, notice: message }
         # Let's return a 201
         format.json { render action: 'show', status: :created, location: @task }
       else
@@ -40,6 +54,6 @@ class TasksController < ApplicationController
   
   # Strong params
   def task_strong_params(p)
-    p.permit(:title) if params[:task]
+    p.permit(:title, :due_date)
   end
 end

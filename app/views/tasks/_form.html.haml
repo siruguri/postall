@@ -7,6 +7,7 @@
 
   = f.inputs do
     = f.input :title
+    = f.input :due_date, as: :date_select
     = f.input :categories, as: :select, required: true #collection: (Category.all.map { |c| c.name })
   = f.actions do 
     = f.action :submit, as: :button, value: "Create Task"

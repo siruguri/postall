@@ -6,15 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create({email: 'admin@me.com', password: 'admin123', admin: true})
+admin_u = User.create({email: 'admin@me.com', password: 'admin123', admin: true})
+u2 = User.create({email: 'just_u@me.com', password: 'userme123', admin: false})
 
 NavbarEntry.create({title:"Tasks", url: '/tasks'})
 NavbarEntry.create({title:"Locations", url: '/locations'})
 NavbarEntry.create({title:"Users", url: '/profiles'})
 
-c=Category.create({name: 'Urgent'})
-c=Category.create({name: 'Procrastinate'})
-t=Task.create({title: "Wash clothes"})
+urg_c=Category.create({name: 'Urgent'})
+proc_c=Category.create({name: 'Procrastinate'})
 
-t.categories << c
+
+t=Task.create({title: "Wash clothes"})
+t.owner = admin_u
+
+t.categories << urg_c
+t.save
+
+t=Task.create({title: "Call mom"})
+t.owner = u2
+t.categories << proc_c
 t.save
