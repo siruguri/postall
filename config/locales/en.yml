@@ -21,4 +21,6 @@
 
 en:
   site_title: "A Basic Rails App"
-
+  successful_resource_creation: "Resource successfully created"
+  successful_resource_update: "Resource successfully updated"
+  errors_found: "Errors found"

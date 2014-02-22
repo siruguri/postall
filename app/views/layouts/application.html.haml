@@ -18,14 +18,14 @@
   %body
     = render "navigation"
     .container.main
-      -if notice or alert
+      -if flash[:notice] or flash[:alert]
         .container
-        -if notice
+        -if flash[:notice]
           .alert.alert-info
-            #{notice}
-        -if alert
+            #{flash[:notice]}
+        -if flash[:alert]
           .alert.alert-danger
-            #{alert}
+            #{flash[:alert]}
 
       = yield
 
