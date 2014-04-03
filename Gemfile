@@ -58,14 +58,12 @@ gem 'less-rails'
 gem 'formtastic'
 gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
 
-group :staging do
+group :development, :staging do
+  # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
 
 group :development do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
