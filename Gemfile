@@ -2,7 +2,6 @@
 source 'https://rubygems.org'
 
 ruby '2.1.0'
-gem 'thin'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
@@ -64,6 +63,8 @@ group :development, :staging do
 end
 
 group :development do
+      
+  gem 'thin'
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
