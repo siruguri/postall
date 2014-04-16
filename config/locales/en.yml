@@ -24,3 +24,5 @@ en:
   successful_resource_creation: "Resource successfully created"
   successful_resource_update: "Resource successfully updated"
   errors_found: "Errors found"
+  access_denied_message: "Please sign in to access that page."
+  message_404: "You appear to want something that's not there."

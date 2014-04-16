@@ -15,9 +15,10 @@ namespace :deploy do
   end
 
   desc "Symlink database to shared file"
-  task :symlink_db_file do
+  task :symlink_db_files do
     on roles(:app) do 
-      execute "ln -s #{deploy_to}/shared/config/development.sqlite3 #{current_path}/config/development.sqlite3"
+      execute "ln -s #{deploy_to}/shared/db/development.sqlite3 #{current_path}/db/development.sqlite3"
+      execute "ln -s #{deploy_to}/shared/db/production.sqlite3 #{current_path}/db/production.sqlite3"
     end
   end
   
@@ -30,7 +31,7 @@ namespace :deploy do
 end
 
 before "deploy:assets:precompile", "deploy:symlink_db_yml"
-after "deploy", "deploy:symlink_db_file"
+before "deploy:migrate", "deploy:symlink_db_files"
 after "deploy", "deploy:restart"
 after "deploy", "deploy:cleanup"
 

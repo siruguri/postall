@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Rails 4 app sets up the basic code for a skeleton app:
+This Rails 4.1 app sets up the basic code for a skeleton app:
 
 * There some basic models, each meant to do somethign interesting:
   * Task: It borrows code from a standard scaffold structure. It showcases a simple association - belongs_to :owner, class_name: "User"
@@ -13,6 +13,15 @@ This Rails 4 app sets up the basic code for a skeleton app:
 * Views (for Task) use HAML
 * Layouts uses Twitter Bootstrap CSS.
 * Forms use [Formtastic Bootstrap](https://github.com/mjbellantoni/formtastic-bootstrap).
+* The app has Capistrano installed with some basic defaults that assist in making deployments to a remote folder via SSH, like sym-linking to an existing database, to the database config file so that credentials are not stored in the SCS, etc.
+
+
+## Security
+
+The code attempts to be secure - it passes all Brakeman tests, as of Apr 2014. Particularly, it:
+
+* removes the `config/database.yml` file from the repo, and
+* avoids using the stored session secret in production - in production, you have to store the secret token in the environment variable **RAILS_SECRET_TOKEN**. To enable this, the app uses the `dotenv-rails` gem to utilize a .env file in the production environment. You have to create this file - it's not stored in the repo for security reasons.
 
 ## Testing
 
@@ -49,3 +58,5 @@ These generate files, so you don't have to re-run them, but they are here for th
 
     # For formtastic
     rails generate formtastic:install
+
+    # There's probably stuff for geocoding and gmaps4rails... not sure if that's the case.

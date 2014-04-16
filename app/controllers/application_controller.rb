@@ -10,6 +10,15 @@ class ApplicationController < ActionController::Base
     create_navbar_data
   end
 
+  rescue_from ActionController::RoutingError do |exception|
+    error_message = I18n.t(:message_404)
+    go_back_or_root(error_message)
+  end
+  rescue_from CanCan::AccessDenied do |exception|
+    error_message = I18n.t(:access_denied_message)
+    go_back_or_root(error_message)
+  end
+
   private
   def set_locale
     # 1. Let's make our app use the locale
@@ -31,11 +40,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from CanCan::AccessDenied do |exception|
+  def go_back_or_root(message)
     if request.env.key? "HTTP_REFERER"
-      redirect_to :back, :alert => exception.message
+      redirect_to :back, :alert => message
     else
-      redirect_to root_url, :alert => exception.message
+      redirect_to root_url, :alert => message
     end
   end 
 
