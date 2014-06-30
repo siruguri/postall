@@ -1,15 +1,15 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'baseline_rails_4_install'
-set :repo_url, 'git@github.com:siruguri/baseline_rails_4_install.git'
+set :application, 'baseline_rails_install'
+set :repo_url, 'git@github.com:siruguri/baseline_rails_install.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :branch, "master"
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/railsapps/baseline_rails_4_install'
+set :deploy_to, '/var/www/railsapps/baseline_rails_install'
 
 # Default value for :scm is :git
 # set :scm, :git

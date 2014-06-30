@@ -15,12 +15,23 @@ This Rails 4.1 app sets up the basic code for a skeleton app:
 * Forms use [Formtastic Bootstrap](https://github.com/mjbellantoni/formtastic-bootstrap).
 * The app has Capistrano installed with some basic defaults that assist in making deployments to a remote folder via SSH, like sym-linking to an existing database, to the database config file so that credentials are not stored in the SCS, etc.
 
+## Usage
+
+Before you run your app, you have to prepare the baseline code as follows:
+
+* At the least copy `config\database.yml.sample` to `config\database.yml`. You might want to also change the db or its creds.
+* Change the app (class) name - there's a convenient shell script in the project root that does that using `sed` - you have to uncomment the line at the top of the script that sets your app name.
+* Run migrations. Optionally, seed the database if you wish.
+* If you're going to deploy your app using the Capistrano config in it:
+  * Change the config information in `config\deploy.rb` - the app name and its location
+  * Change the domain name in `config\deploy\production.rb`
+  * Set up a shared folder in your deployment where you store your `config\database.yml` file
 
 ## Security
 
 The code attempts to be secure - it passes all Brakeman tests, as of Apr 2014. Particularly, it:
 
-* removes the `config/database.yml` file from the repo, and
+* moves `config/database.yml` to `config\database.yml.sample` in the repo and ignores the former, so that you are forced to set credentials in a non-committed file, and
 * avoids using the stored session secret in production - in production, you have to store the secret token in the environment variable **RAILS_SECRET_TOKEN**. To enable this, the app uses the `dotenv-rails` gem to utilize a .env file in the production environment. You have to create this file - it's not stored in the repo for security reasons.
 
 ## Testing
