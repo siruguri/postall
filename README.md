@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Rails 4.1 app sets up the basic code for a skeleton app:
+This Rails 4.1.2 app sets up the basic code for a skeleton app:
 
 * There some basic models, each meant to do somethign interesting:
   * Task: It borrows code from a standard scaffold structure. It showcases a simple association - belongs_to :owner, class_name: "User"
@@ -20,7 +20,7 @@ This Rails 4.1 app sets up the basic code for a skeleton app:
 Before you run your app, you have to prepare the baseline code as follows:
 
 * At the least copy `config\database.yml.sample` to `config\database.yml`. You might want to also change the db or its creds.
-* Change the app (class) name - there's a convenient shell script in the project root that does that using `sed` - you have to uncomment the line at the top of the script that sets your app name.
+* Change the app (class) name - there's a convenient shell script (`change_app_name.sh`) in the project root that does that using `sed` - you have to uncomment the line at the top of the script that sets your app name.
 * Run migrations. Optionally, seed the database if you wish.
 * If you're going to deploy your app using the Capistrano config in it:
   * Change the config information in `config\deploy.rb` - the app name and its location
@@ -42,6 +42,17 @@ The app also has some basic tests:
 * It uses Capybara.
 * Unit tests for users and tasks - check that users can be created, and that tasks cannot be created when a user is not logged in.
 * Integration tests: None so far
+
+## Heroku
+
+You have to uncomment the `rails_12factor` gem in the Gemfile, if you are going to deploy this to Heroku. The checked-in Gemfile doesn't include it.
+
+## Coming Soon!
+
+I am not sure I'll add these - the configuration changes a lot, and these are not necessarily "commonly" used. But you might hold your breath a bit...
+
+* Rails Admin
+* Elastic Search
 
 ## How Did The App Get Here?
 
@@ -70,4 +81,4 @@ These generate files, so you don't have to re-run them, but they are here for th
     # For formtastic
     rails generate formtastic:install
 
-    # There's probably stuff for geocoding and gmaps4rails... not sure if that's the case.
+    # There's probably stuff for geocoding, gmaps4rails, and doorkeeper ... not sure if that's the case.
