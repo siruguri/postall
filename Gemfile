@@ -93,4 +93,4 @@ group :test do
   gem "email_spec"
 end
 
-gem 'dotenv'
+gem 'dotenv-rails', groups: [:development, :test]

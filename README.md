@@ -51,7 +51,10 @@ You have to uncomment the `rails_12factor` gem in the Gemfile, if you are going 
 
 I am not sure I'll add these - the configuration changes a lot, and these are not necessarily "commonly" used. But you might hold your breath a bit...
 
-* Rails Admin
+* Rails Admin: Install as per [the basic steps](https://github.com/sferik/rails_admin#installation), then uncomment the Devise lines in `config/initializers/rails_admin.rb`, and [add Devise authorization](https://github.com/sferik/rails_admin/wiki/Authorization) (assuming your `User` model responds to `is_admin?`).
+
+* Paperclip with S3: This can get complicated - first you should have a model for files that `belongs_to Imageable`, and build the appropriate polymorphic migration for the files model; then you configure S3 with credentials in your appropriate config file (bucket, S3 keys); then you configure your path, and add a `paperclip.rb` initializer optionally that adds an `interpolates` method to customize your URL.
+
 * Elastic Search
 
 ## How Did The App Get Here?
