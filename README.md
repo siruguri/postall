@@ -22,6 +22,8 @@ Before you run your app, you have to prepare the baseline code as follows:
 * At the least copy `config\database.yml.sample` to `config\database.yml`. You might want to also change the db or its creds.
 * Change the app (class) name - there's a convenient shell script (`change_app_name.sh`) in the project root that does that using `sed` - you have to uncomment the line at the top of the script that sets your app name.
 * Run migrations. Optionally, seed the database if you wish.
+* Check the routes file and remove the latter half, after the comment that says that that part is probably not useful.
+* Remove the Resque rake task if you aren't going to be using Resque.
 * If you're going to deploy your app using the Capistrano config in it:
   * Change the config information in `config\deploy.rb` - the app name and its location
   * Change the domain name in `config\deploy\production.rb`
