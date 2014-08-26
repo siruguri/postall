@@ -6,8 +6,16 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+# Needed for proper Cap deploy with env vars
+require 'dotenv'
+Dotenv.load
+
 module TestDk
+  class NoTokenException < Exception
+  end
+
   class Application < Rails::Application
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -16,10 +24,18 @@ module TestDk
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    config.autoload_paths += %W(#{config.root}/lib)
+
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # rails will fallback to config.i18n.default_locale translation
+    config.i18n.fallbacks = true
+    I18n.enforce_available_locales = false
+    # rails will fallback to en, no matter what is set as config.i18n.default_locale
+    # config.i18n.fallbacks = [:en]
+    
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'

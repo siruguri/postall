@@ -1,10 +1,12 @@
-%table{style: "border: 1px solid;"}
+%table.table.table-striped.table-bordered
   %tr
-    %th{style: "border-bottom: 2px solid;"} Task Name
+    %th Task Name
   -@tasks.each do |task|
     %tr
       %td
         = link_to task.title, task
+      %td
+        = link_to "Edit", edit_task_path(task)
 
 %p
 =link_to "New Task", new_task_path

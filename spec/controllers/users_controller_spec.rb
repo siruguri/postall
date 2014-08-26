@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Devise::SessionsController do
-  describe "logged-in users" do
+  describe "#create" do
     before (:each) do
-      user = create(:user)
+      user = FactoryGirl.create :ordinary_user
       @request.env["devise.mapping"] = Devise.mappings[:user]
       sign_in(user)
     end

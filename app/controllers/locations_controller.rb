@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /locations
   # GET /locations.json
   def index
@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = Location.new(params[:location])
 
     respond_to do |format|
       if @location.save
@@ -45,7 +45,7 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1.json
   def update
     respond_to do |format|
-      if @location.update(location_params)
+      if @location.update(params[:location])
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
         format.json { head :no_content }
       else
@@ -72,7 +72,11 @@ class LocationsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def location_params
-      params.require(:location).permit(:lat, :long, :name, :address)
+    def location_strong_params(p)
+      if p.nil?
+        nil
+      else
+        p.permit(:lat, :long, :name, :address)
+      end
     end
 end

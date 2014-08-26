@@ -1,3 +1,7 @@
+.main {
+
+}
+
 span.flashmesgs { 
   background-color: pink;
   display: inline-block;
@@ -15,11 +19,4 @@ span.flashmesgs {
 #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
-}
-
-.alignleft {
-    float: left;
-}
-.alignright {
-    float: right;
 }
