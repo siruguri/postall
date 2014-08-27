@@ -1,25 +1,24 @@
 # -*- coding: utf-8 -*-
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4'
+gem 'rails', ">=4.2.0.beta"
 
 # Uncomment this for Heroku
 # gem 'rails_12factor'
 
 gem 'thin'
 
-
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '=5.0.0.beta1'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -30,7 +29,7 @@ gem 'turbolinks'
 gem 'underscore-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 # Adding Doorkeeper
 gem 'doorkeeper'
@@ -44,11 +43,11 @@ gem 'gmaps4rails'
 
 gem 'geocoder'
 
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
 gem 'haml-rails'
 gem 'cancan'
 
-gem 'resque'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'resque-web', require: 'resque_web'
 gem 'resque-scheduler'
 
@@ -74,7 +73,7 @@ group :development do
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 
   # This needs to be here, else 'rake spec' will output nothing.
   gem 'rspec-rails'

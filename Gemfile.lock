@@ -5,43 +5,76 @@ GIT
     formtastic-bootstrap (3.0.0)
       formtastic (>= 2.2)
 
+GIT
+  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: 4c41627d55c276ee41b3079f27fe2f45b0ba4ae5
+  specs:
+    twitter-bootstrap-rails (3.2.0)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
+
+GIT
+  remote: https://github.com/plataformatec/devise.git
+  revision: 2f4fab00d9f44958957e6699d8ee02a063565c19
+  branch: lm-rails-4-2
+  specs:
+    devise (3.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.1.5)
-      actionpack (= 4.1.5)
-      actionview (= 4.1.5)
-      mail (~> 2.5.4)
-    actionpack (4.1.5)
-      actionview (= 4.1.5)
-      activesupport (= 4.1.5)
-      rack (~> 1.5.2)
+    actionmailer (4.2.0.beta1)
+      actionpack (= 4.2.0.beta1)
+      actionview (= 4.2.0.beta1)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 1.0, >= 1.0.2)
+    actionpack (4.2.0.beta1)
+      actionview (= 4.2.0.beta1)
+      activesupport (= 4.2.0.beta1)
+      rack (~> 1.6.0.beta)
       rack-test (~> 0.6.2)
-    actionview (4.1.5)
-      activesupport (= 4.1.5)
+      rails-deprecated_sanitizer (~> 1.0, >= 1.0.2)
+      rails-dom-testing (~> 1.0, >= 1.0.2)
+    actionview (4.2.0.beta1)
+      activesupport (= 4.2.0.beta1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.1.5)
-      activesupport (= 4.1.5)
+      rails-deprecated_sanitizer (~> 1.0, >= 1.0.2)
+      rails-dom-testing (~> 1.0, >= 1.0.2)
+    activejob (4.2.0.beta1)
+      globalid (>= 0.2.3)
+    activemodel (4.2.0.beta1)
+      activesupport (= 4.2.0.beta1)
       builder (~> 3.1)
-    activerecord (4.1.5)
-      activemodel (= 4.1.5)
-      activesupport (= 4.1.5)
-      arel (~> 5.0.0)
+    activerecord (4.2.0.beta1)
+      activemodel (= 4.2.0.beta1)
+      activesupport (= 4.2.0.beta1)
+      arel (>= 6.0.0.beta1, < 6.1)
     activerecord-postgresql-adapter (0.0.1)
       pg
-    activesupport (4.1.5)
-      i18n (~> 0.6, >= 0.6.9)
+    activesupport (4.2.0.beta1)
+      i18n (>= 0.7.0.beta1, < 0.8)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    arel (5.0.1.20140414130214)
+    arel (6.0.0.beta1)
     bcrypt (3.1.7)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    byebug (2.7.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
     cancan (1.6.10)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -64,18 +97,7 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
     debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.5)
-    devise (3.3.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     doorkeeper (1.4.0)
       railties (>= 3.1)
@@ -99,6 +121,8 @@ GEM
     formtastic (2.3.0)
       actionpack (>= 3.0)
     geocoder (1.2.4)
+    globalid (0.2.3)
+      activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
@@ -108,10 +132,10 @@ GEM
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
     hike (1.2.3)
-    i18n (0.6.11)
-    jbuilder (1.5.3)
-      activesupport (>= 3.0.0)
-      multi_json (>= 1.2.0)
+    i18n (0.7.0.beta1)
+    jbuilder (2.1.3)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -124,11 +148,10 @@ GEM
       actionpack (>= 3.1)
       less (~> 2.5.0)
     libv8 (3.16.14.3)
-    mail (2.5.4)
-      mime-types (~> 1.16)
-      treetop (~> 1.4.8)
+    mail (2.6.1)
+      mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (1.25.1)
+    mime-types (2.3)
     mini_portile (0.6.0)
     minitest (5.4.0)
     mono_logger (1.1.0)
@@ -137,38 +160,44 @@ GEM
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
-    polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-debugger (0.2.3)
-      debugger (~> 1.3)
-      pry (>= 0.9.10, < 0.11.0)
+    pry-byebug (1.3.3)
+      byebug (~> 2.7)
+      pry (~> 0.10)
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    rack (1.5.2)
+    rack (1.6.0.beta)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.1.5)
-      actionmailer (= 4.1.5)
-      actionpack (= 4.1.5)
-      actionview (= 4.1.5)
-      activemodel (= 4.1.5)
-      activerecord (= 4.1.5)
-      activesupport (= 4.1.5)
+    rails (4.2.0.beta1)
+      actionmailer (= 4.2.0.beta1)
+      actionpack (= 4.2.0.beta1)
+      actionview (= 4.2.0.beta1)
+      activejob (= 4.2.0.beta1)
+      activemodel (= 4.2.0.beta1)
+      activerecord (= 4.2.0.beta1)
+      activesupport (= 4.2.0.beta1)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.5)
-      sprockets-rails (~> 2.0)
-    railties (4.1.5)
-      actionpack (= 4.1.5)
-      activesupport (= 4.1.5)
+      railties (= 4.2.0.beta1)
+      sprockets-rails (~> 3.0.0.beta1)
+    rails-deprecated_sanitizer (1.0.2)
+      activesupport (>= 4.2.0.alpha)
+    rails-dom-testing (1.0.2)
+      activesupport
+      nokogiri (~> 1.6.0)
+      rails-deprecated_sanitizer (>= 1.0.1)
+    railties (4.2.0.beta1)
+      actionpack (= 4.2.0.beta1)
+      activesupport (= 4.2.0.beta1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
@@ -178,6 +207,8 @@ GEM
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
+    responders (2.0.0)
+      railties (>= 4.2.0.alpha, < 5)
     resque (1.25.2)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
@@ -214,12 +245,12 @@ GEM
     rubyzip (1.1.6)
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
-    sass (3.2.19)
-    sass-rails (4.0.3)
+    sass (3.4.1)
+    sass-rails (5.0.0.beta1)
       railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.0)
-      sprockets (~> 2.8, <= 2.11.0)
-      sprockets-rails (~> 2.0)
+      sass (~> 3.2)
+      sprockets (~> 2.12)
+      sprockets-rails (>= 2.0, < 4.0)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -235,14 +266,14 @@ GEM
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     slop (3.6.0)
-    sprockets (2.11.0)
+    sprockets (2.12.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.1.3)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
+    sprockets-rails (3.0.0.beta1)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
     therubyracer (0.12.1)
@@ -255,16 +286,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    treetop (1.4.15)
-      polyglot
-      polyglot (>= 0.3.1)
     turbolinks (2.3.0)
       coffee-rails
-    twitter-bootstrap-rails (3.2.0)
-      actionpack (~> 4.1)
-      execjs (~> 2.2)
-      rails (~> 4.1)
-      railties (~> 4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -286,9 +309,9 @@ DEPENDENCIES
   activerecord-postgresql-adapter
   cancan
   capybara
-  coffee-rails (~> 4.0.0)
+  coffee-rails
   database_cleaner
-  devise
+  devise!
   doorkeeper
   dotenv-rails
   email_spec
@@ -298,20 +321,19 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   haml-rails
-  jbuilder (~> 1.2)
+  jbuilder
   jquery-rails
   less-rails
   pg
   pry
-  pry-debugger
+  pry-byebug
   pry-remote
   pry-stack_explorer
-  rails (~> 4)
-  resque
+  rails (>= 4.2.0.beta)
   resque-scheduler
   resque-web
   rspec-rails
-  sass-rails (~> 4.0.0)
+  sass-rails (= 5.0.0.beta1)
   sdoc
   selenium-webdriver
   shoulda-matchers
@@ -319,5 +341,6 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
-  uglifier (>= 1.3.0)
+  twitter-bootstrap-rails!
+  uglifier
   underscore-rails
