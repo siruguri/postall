@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Rails 4.1.4 app sets up the basic code for a skeleton app:
+This Rails 4.1.5 app sets up the basic code for a skeleton app:
 
 * There some basic models, each meant to do somethign interesting:
   * Task: It borrows code from a standard scaffold structure. It showcases a simple association - belongs_to :owner, class_name: "User"
@@ -14,6 +14,7 @@ This Rails 4.1.4 app sets up the basic code for a skeleton app:
 * Controllers use strong parameters
 * The layout puts notice and alert at the top of the page, and a float:right element to accommodate the user session (logged-in/out) state.
 * The application layout uses Twitter Bootstrap CSS.
+* Forms use [Formtastic Bootstrap](https://github.com/mjbellantoni/formtastic-bootstrap).
 * The app has Capistrano installed with some basic defaults that assist in making deployments to a remote folder via SSH, like sym-linking to an existing database, to the database config file so that credentials are not stored in the SCS, etc.
 
 ## Usage
