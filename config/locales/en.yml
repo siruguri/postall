@@ -21,6 +21,7 @@
 
 en:
   site_title: "A Basic Rails App"
+  site_brand: 'Rails Skeleton'
   successful_resource_creation: "Resource successfully created"
   successful_resource_update: "Resource successfully updated"
   errors_found: "Errors found"

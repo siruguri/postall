@@ -29,6 +29,7 @@ Before you run your app, you have to prepare the baseline code as follows:
   * Change the config information in `config\deploy.rb` - the app name and its location
   * Change the domain name in `config\deploy\production.rb`
   * Set up a shared folder in your deployment where you store your `config\database.yml` file
+* The locale file has the site's title, and the phrase that's in the Bootstrap navbar - you might want to change it.
 
 ## Security
 
@@ -86,5 +87,8 @@ These generate files, so you don't have to re-run them, but they are here for th
 
     # For formtastic
     rails generate formtastic:install
+
+    # For Rails Admin
+    rails g rails_admin:install
 
     # There's probably stuff for geocoding, gmaps4rails, and doorkeeper ... not sure if that's the case.

@@ -11,6 +11,10 @@ TestDk::Application.routes.draw do
 
   # The rest of the routes file is probably useless to most new apps based on this template, EXCEPT for the 
   # 404 catchall below which has to always be at the end.
+
+  # Adds RailsAdmin
+  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
+
   resources :locations
   resources :tasks
   resources :categories
