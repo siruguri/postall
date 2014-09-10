@@ -1,3 +1,5 @@
+require 'resque_web'
+
 TestDk::Application.routes.draw do
 
   # I like having this to populate the navbar with, via the database rather than do it in the views.

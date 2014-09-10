@@ -21,7 +21,7 @@ This Rails 4.1.5 app sets up the basic code for a skeleton app:
 
 Before you run your app, you have to prepare the baseline code as follows:
 
-* At the least copy `config\database.yml.sample` to `config\database.yml`. You might want to also change the db or its creds.
+* At the very least, copy `config\database.yml.sample` to `config\database.yml`. You might want to also change the db or its creds.
 * Change the app (class) name - there's a convenient shell script (`change_app_name.sh`) in the project root that does that using `sed` - you have to uncomment the line at the top of the script that sets your app name.
 * Run migrations. Optionally, seed the database if you wish.
 * Check the routes file and remove the latter half, after the comment that says that that part is probably not useful.
@@ -30,6 +30,7 @@ Before you run your app, you have to prepare the baseline code as follows:
   * Change the config information in `config\deploy.rb` - the app name and its location
   * Change the domain name in `config\deploy\production.rb`
   * Set up a shared folder in your deployment where you store your `config\database.yml` file
+# You might want to delete some models (`Task`, `Location`), their corresponding tests and migrations, and the corresponding routes. Also, you might want to get rid of the Google Maps API assets in `app\assets\javascripts\gmaps`. Remember to remove them from your repository, not just the filesystem.
 
 ## Security
 
@@ -45,7 +46,14 @@ The app also has some basic tests:
 * It uses RSpec - `rails g rspec:install` has already been run for you.
 * It uses Capybara.
 * Unit tests for users and tasks - check that users can be created, and that tasks cannot be created when a user is not logged in.
+* Rails Admin: The app now has Rails Admin installed. Note that installation was done by following [the basic steps](https://github.com/sferik/rails_admin#installation), and that the Devise lines in `config/initializers/rails_admin.rb` are uncommented. 
 * Integration tests: None so far
+
+## Resque
+
+If you are going to use Resque, here are some things worth knowing about how it works:
+
+* This app has the resque gem, as well as resque-web for the web interface and resque-scheduler. Consequently, it has a `Procfile` that lets you run all three tasks (your app, resque's worker queues, and resque scheduler's scheduling) by running `foreman`
 
 ## Heroku
 
@@ -54,8 +62,6 @@ You have to uncomment the `rails_12factor` gem in the Gemfile, if you are going 
 ## Coming Soon!
 
 I am not sure I'll add these - the configuration changes a lot, and these are not necessarily "commonly" used. But you might hold your breath a bit...
-
-* Rails Admin: Install as per [the basic steps](https://github.com/sferik/rails_admin#installation), then uncomment the Devise lines in `config/initializers/rails_admin.rb`, and [add Devise authorization](https://github.com/sferik/rails_admin/wiki/Authorization) (assuming your `User` model responds to `is_admin?`).
 
 * Paperclip with S3: This can get complicated - first you should have a model for files that `belongs_to Imageable`, and build the appropriate polymorphic migration for the files model; then you configure S3 with credentials in your appropriate config file (bucket, S3 keys); then you configure your path, and add a `paperclip.rb` initializer optionally that adds an `interpolates` method to customize your URL.
 
