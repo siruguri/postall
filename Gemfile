@@ -58,7 +58,7 @@ gem 'therubyracer'
 gem 'less-rails'
 
 gem 'formtastic'
-gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
+gem 'formtastic-bootstrap', github: 'siruguri/formtastic-bootstrap'
 
 group :development do
   # Use sqlite3 as the database for Active Record

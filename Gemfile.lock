@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/mjbellantoni/formtastic-bootstrap.git
-  revision: ee1bd160a898713d553c6fb8b10b0408071a1f2e
-  specs:
-    formtastic-bootstrap (3.0.0)
-      formtastic (>= 2.2)
-
-GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 3edf24de985d946f16a2781644289cfdc51ba95b
   specs:
@@ -14,6 +7,13 @@ GIT
       execjs
       rails (>= 3.1)
       railties (>= 3.1)
+
+GIT
+  remote: git://github.com/siruguri/formtastic-bootstrap.git
+  revision: 59fc3770e19237b14b5c626f243a9f99b9da2c86
+  specs:
+    formtastic-bootstrap (3.0.0)
+      formtastic (>= 2.2)
 
 GIT
   remote: https://github.com/plataformatec/devise.git
@@ -118,7 +118,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    ffi (1.9.3)
+    ffi (1.9.4)
     formtastic (3.0.0)
       actionpack (>= 3.2.13)
     geocoder (1.2.5)
