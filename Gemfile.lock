@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/mjbellantoni/formtastic-bootstrap.git
-  revision: ee1bd160a898713d553c6fb8b10b0408071a1f2e
+  remote: git://github.com/siruguri/formtastic-bootstrap.git
+  revision: 59fc3770e19237b14b5c626f243a9f99b9da2c86
   specs:
     formtastic-bootstrap (3.0.0)
       formtastic (>= 2.2)
@@ -94,7 +94,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    ffi (1.9.3)
+    ffi (1.9.4)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     formtastic (3.0.0)
