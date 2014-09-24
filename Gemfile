@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 source 'https://rubygems.org'
 
-ruby '2.1.0'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4'
+gem 'rails', '~> 4.1'
 
 # Uncomment this for Heroku
 # gem 'rails_12factor'
@@ -71,21 +69,15 @@ group :development do
 end
 
 group :development do
-      
-  gem 'thin'
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
-  gem 'pry-debugger'
-
-  # This needs to be here, else 'rake spec' will output nothing.
-  gem 'rspec-rails'
+  gem 'pry-byebug'
 end
 
 #testing with rspec
 
 group :test do
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
 
   gem 'capybara'
@@ -95,4 +87,7 @@ group :test do
   gem "email_spec"
 end
 
-gem 'dotenv-rails', groups: [:development, :test]
+group :development, :test do
+  gem 'dotenv-rails'
+  gem 'rspec-rails'
+end

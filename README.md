@@ -92,3 +92,7 @@ These generate files, so you don't have to re-run them, but they are here for th
     rails g rails_admin:install
 
     # There's probably stuff for geocoding, gmaps4rails, and doorkeeper ... not sure if that's the case.
+
+## Addenda
+
+* Upgrade to Formtastic Bootstrap 3 requires [custom change to Formtastic Bootstrap code](https://github.com/mjbellantoni/formtastic-bootstrap/issues/108)
