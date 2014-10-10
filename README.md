@@ -88,6 +88,9 @@ These generate files, so you don't have to re-run them, but they are here for th
     # For formtastic
     rails generate formtastic:install
 
+    # For Bootstrap Rails
+    rails generate bootstrap:install less
+
     # For Rails Admin
     rails g rails_admin:install
 
