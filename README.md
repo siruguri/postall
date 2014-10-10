@@ -94,4 +94,7 @@ These generate files, so you don't have to re-run them, but they are here for th
     # For formtastic
     rails generate formtastic:install
 
+    # For Bootstrap Rails
+    rails generate bootstrap:install less
+
     # There's probably stuff for geocoding, gmaps4rails, and doorkeeper ... not sure if that's the case.
