@@ -1,3 +1,7 @@
+# Needed for proper Cap deploy with env vars
+require 'dotenv'
+Dotenv.load
+
 TestDk::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

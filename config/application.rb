@@ -6,10 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-# Needed for proper Cap deploy with env vars
-require 'dotenv'
-Dotenv.load
-
 module TestDk
   class NoTokenException < Exception
   end

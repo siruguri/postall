@@ -38,7 +38,12 @@ Before you run your app, you have to prepare the baseline code as follows:
 The code attempts to be secure - it passes all Brakeman tests, as of Apr 2014. Particularly, it:
 
 * moves `config/database.yml` to `config\database.yml.sample` in the repo and ignores the former, so that you are forced to set credentials in a non-committed file, and
-* avoids using the stored session secret in production - in production, you have to store the secret token in the environment variable **RAILS_SECRET_TOKEN**. To enable this, the app uses the `dotenv-rails` gem to utilize a .env file in the production environment. You have to create this file - it's not stored in the repo for security reasons.
+* avoids using the stored session secret in production - in production, you have to store the secret token in the environment variable **RAILS_SECRET_TOKEN**.
+  * If your production environment is Heroku, add this variable in Heroku like this:
+
+        heroku config:add RAILS_SECRET_TOKEN=a-128-character-token-no-spaces-though-you-generated-as-a-secret
+	
+  * In development, the secret token is enabled in `config/initializers/secret_token.rb`. The app also uses the `dotenv-rails` gem to utilize a .env file in the app root as an alternate method if you don't even want to share your development secret token in your repo. You have to create the `.env` file and add the `RAILS_SECRET_TOKEN` variable to it, if you are using this method.
 
 ## Testing
 
