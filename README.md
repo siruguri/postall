@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Rails 4.1.5 app sets up the basic code for a skeleton app:
+This Rails 4.1.7 app sets up the basic code for a skeleton app:
 
 * There some basic models, each meant to do somethign interesting:
   * Task: It borrows code from a standard scaffold structure. It showcases a simple association - belongs_to :owner, class_name: "User"
