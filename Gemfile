@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1'
+gem 'rails', '4.2.0.rc1'
 # Uncomment this for Heroku
 # gem 'rails_12factor'
 
@@ -63,6 +63,8 @@ gem 'formtastic'
 gem 'formtastic-bootstrap', github: 'siruguri/formtastic-bootstrap'
 
 group :development do
+  # Rails 4.2 Web Console!
+  gem 'web-console', '~> 2.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
