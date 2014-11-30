@@ -25,8 +25,14 @@ TestDk::Application.routes.draw do
   mount ResqueWeb::Engine => "/resque"
 
   # Added API and Doorkeeper
-  namespace :api, defaults: {format: 'json'} do
-    resources :tasks
+  constraints(format: /json/) do
+    namespace :api, defaults: {format: 'json'} do
+      namespace :v1 do
+        # This is Rails magic - this will force the controller's action to be taken from the URL path
+        # The dummy action won't be used - it's possible this can be written without the dummy piece
+        post '/tasks/:action' => 'tasks#dummy'
+      end
+    end
   end
 
   use_doorkeeper
