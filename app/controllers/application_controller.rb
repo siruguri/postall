@@ -36,8 +36,11 @@ class ApplicationController < ActionController::Base
 
   def create_navbar_data
     @navbar_entries = NavbarEntry.all.map do |entry|
-      {title: entry.title, url: entry.url }
+      if entry.user_id == -1 || Ability.new(current_user).can?(:read, entry)
+        {title: entry.title, url: entry.url }
+      end
     end
+    @navbar_entries.compact!
   end
 
   def go_back_or_root(message)
