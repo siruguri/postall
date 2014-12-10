@@ -1,8 +1,10 @@
 class ExpiredTasks
-  @queue=:expired_tasks
-
+  @queue = :task4
+  
   def self.perform
-    puts "In expiry perform"
+    f=File.open('/Users/sameer/tmp/tmp.txt', 'a')
+    f.puts "#{Time.now}: In ExpiredTasks perform"
+    f.close
   end
 
 end

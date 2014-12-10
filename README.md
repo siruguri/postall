@@ -16,6 +16,7 @@ This Rails 4.1.7 app sets up the basic code for a skeleton app:
 * The application layout uses Twitter Bootstrap CSS.
 * Forms use [Formtastic Bootstrap](https://github.com/mjbellantoni/formtastic-bootstrap).
 * The app has Capistrano installed with some basic defaults that assist in making deployments to a remote folder via SSH, like sym-linking to an existing database, to the database config file so that credentials are not stored in the SCS, etc.
+* Rails Admin: The app now has Rails Admin installed. Note that installation was done by following [the basic steps](https://github.com/sferik/rails_admin#installation), and that the Devise lines in `config/initializers/rails_admin.rb` are uncommented. 
 
 ## Usage
 
@@ -31,7 +32,21 @@ Before you run your app, you have to prepare the baseline code as follows:
   * Change the domain name in `config\deploy\production.rb`
   * Set up a shared folder in your deployment where you store your `config\database.yml` file
 * The locale file has the site's title, and the phrase that's in the Bootstrap navbar - you might want to change it.
-* You might want to delete some models (`Task`, `Location`), their corresponding tests and migrations, and the corresponding routes. Also, you might want to get rid of the Google Maps API assets in `app\assets\javascripts\gmaps`. Remember to remove them from your repository, not just the filesystem.
+* You might want to delete some models (`Task`, `Location`, etc.), their corresponding tests and migrations, and the corresponding routes. Also, you might want to get rid of the Google Maps API assets in `app\assets\javascripts\gmaps`. Remember to remove them from your repository, not just the filesystem. Here's a helpful list of `git rm` commands you might want to consider running:
+
+        git rm spec/models/*
+        git rm spec/features/*
+        git rm spec/controllers/*
+        
+        cd app/models/
+        git rm category.rb location.rb task*
+        cd ../../app/controllers
+        git rm locations_controller.rb tasks_controller.rb categories_controller.rb
+        cd ../app/views/
+        git rm -r locations/ tasks/	
+	cd ../db/migrate
+	git rm *task* *location* *categor*
+        cd ../../
 
 ## Security
 
@@ -47,12 +62,11 @@ The code attempts to be secure - it passes all Brakeman tests, as of Apr 2014. P
 
 ## Testing
 
-The app also has some basic tests:
+The app also has some basic tests but I've stopped trying to run them in a long, long, time. Real developers don't test their code; they just have an unbounded, and completely unfounded, faith in their infallibility.
 
 * It uses RSpec - `rails g rspec:install` has already been run for you.
 * It uses Capybara.
 * Unit tests for users and tasks - check that users can be created, and that tasks cannot be created when a user is not logged in.
-* Rails Admin: The app now has Rails Admin installed. Note that installation was done by following [the basic steps](https://github.com/sferik/rails_admin#installation), and that the Devise lines in `config/initializers/rails_admin.rb` are uncommented. 
 * Integration tests: None so far
 
 ## Resque
@@ -67,10 +81,9 @@ You have to uncomment the `rails_12factor` gem in the Gemfile, if you are going 
 
 ## Coming Soon!
 
-I am not sure I'll add these - the configuration changes a lot, and these are not necessarily "commonly" used. But you might hold your breath a bit...
+I am not sure I'll add these gems - their configuration changes a lot, imo, and these are not necessarily "commonly" used. But you might hold your breath a bit...
 
 * Paperclip with S3: This can get complicated - first you should have a model for files that `belongs_to Imageable`, and build the appropriate polymorphic migration for the files model; then you configure S3 with credentials in your appropriate config file (bucket, S3 keys); then you configure your path, and add a `paperclip.rb` initializer optionally that adds an `interpolates` method to customize your URL.
-
 * Elastic Search
 
 ## How Did The App Get Here?
@@ -79,11 +92,10 @@ If you are trying to do this from scratch, note that the following `rails` and `
 
 This list is unfortunately *not* complete - it's pretty hard to keep the list of migrations up-to-date. :(
 
-    rails new baseline_rails_4_install
+    rails new baseline_rails_install
+    rails generate model User admin:boolean age:integer
     rails generate model Task title:string owner_id:integer
     rails generate scaffold Location lat:float long:float name:string address:string	
-    rails g migration AddAdminToUser admin:boolean
-    rails g migration AddAgeToUser age:integer
 
 These generate files, so you don't have to re-run them, but they are here for the sake of the record. This list too is probably incomplete:
 
@@ -103,12 +115,9 @@ These generate files, so you don't have to re-run them, but they are here for th
     # For Bootstrap Rails
     rails generate bootstrap:install less
 
-<<<<<<< HEAD
     # For Rails Admin
     rails g rails_admin:install
 
-=======
->>>>>>> rails4
     # There's probably stuff for geocoding, gmaps4rails, and doorkeeper ... not sure if that's the case.
 
 ## Addenda
