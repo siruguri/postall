@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TestDk::Application.load_tasks
+PostAll::Application.load_tasks

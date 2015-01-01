@@ -1,5 +1,5 @@
 # change this to your app's class name and uncomment it
-# NEWNAME=StatusTracker
+NEWNAME=PostAll
 
 sed "s/TestDk/$NEWNAME/g" config/application.rb > _tmp; mv _tmp config/application.rb
 
