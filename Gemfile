@@ -62,6 +62,13 @@ gem 'less-rails'
 gem 'formtastic'
 gem 'formtastic-bootstrap', github: 'siruguri/formtastic-bootstrap'
 
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
+# integrate bundler with capistrano
+gem 'capistrano-bundler'
+gem 'capistrano-rvm'
+gem 'capistrano-passenger'
+
 group :development do
   # Rails 4.2 Web Console!
   gem 'web-console', '~> 2.0'
