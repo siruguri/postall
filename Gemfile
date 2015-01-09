@@ -51,10 +51,12 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'resque-web', require: 'resque_web'
 gem 'resque-scheduler'
 
-group :production do
+=begin
+ group :production do
   gem 'pg'
   gem 'activerecord-postgresql-adapter'
 end
+=end
 
 gem 'therubyracer'
 gem 'less-rails'
@@ -69,11 +71,11 @@ gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 gem 'capistrano-passenger'
 
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 group :development do
   # Rails 4.2 Web Console!
   gem 'web-console', '~> 2.0'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 group :development do
