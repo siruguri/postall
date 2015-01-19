@@ -8,7 +8,8 @@ PostAll::Application.routes.draw do
   # Logins and Profiles
   devise_for :users
 
-  get 'redirect/:src' => 'redirects#redirect'
+  #get 'redirect/:src' => 'redirects#redirect'
+  resources :redirect_maps, only: [:create, :show, :new]
   
   # Adds RailsAdmin
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
