@@ -8,6 +8,8 @@ gem 'rails', '~>4.1'
 # gem 'rails_12factor'
 
 gem 'thin'
+gem 'quiet_assets'
+
 # Admin Interface
 gem 'rails_admin'
 
@@ -78,23 +80,19 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
-group :development do
+group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
 end
 
-#testing with rspec
-
+#testing with minitest
 group :test do
+  gem 'minitest-spec-rails'
   gem 'minitest-rails-capybara'
   gem 'capybara-webkit'
-  gem 'oauth2'
   gem 'mocha'
-end
-
-group :development, :test do
-  gem 'dotenv-rails'
-  gem 'rspec-rails'
+  gem 'simplecov', require: false
 end

@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
   end 
 
   # Use URL options to set locale. I prefer it that way.
-  def default_url_options(options={})
+  def self.default_url_options(options={})
     { locale: I18n.locale }
   end
 end

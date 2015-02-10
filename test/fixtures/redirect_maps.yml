@@ -1,0 +1,3 @@
+redirect_number_one:
+  src: 1
+  dest: http://www.google.com/

@@ -8,11 +8,13 @@ PostAll::Application.routes.draw do
   # Logins and Profiles
   devise_for :users
 
-  #get 'redirect/:src' => 'redirects#redirect'
-  resources :redirect_maps, only: [:create, :show, :new]
+  get 'redirect/:src' => 'redirect_maps#redirect'
+  resources :redirect_maps, only: [:create, :show, :new, :index]
   
   # Adds RailsAdmin
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
+
+  root to: 'redirect_maps#index'
 
   # Need a catch all to redirect to the errors controller, for catching 404s as an exception
   match "*path", to: "errors#catch_404", via: [:get, :post]

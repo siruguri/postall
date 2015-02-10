@@ -1,3 +1,9 @@
-= form_for(@redirect_map) do |f|
-  = f.label :src
-  = f.text_field :src
+= form_for(@redirect_map, {class: 'tablewrap'}) do |f|  
+  %p.tablerow
+    = f.label :src
+    = f.text_field :src
+  %p.tablerow
+    = f.label :dest
+    = f.text_field :dest
+  %p.tablerow
+    = f.submit 'Submit!'  

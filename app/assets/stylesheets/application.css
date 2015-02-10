@@ -14,3 +14,11 @@
  *= require custom.css
  *= require formtastic-bootstrap
  */
+
+.tablewrap {
+	display: table;
+}
+
+.tablerow {
+	display: table-row;
+}

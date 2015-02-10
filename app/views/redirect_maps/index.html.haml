@@ -1,0 +1,16 @@
+.row
+  .col-xs-12
+    There are
+    = @redirect_maps.count
+    redirects.
+
+.row
+  %ol      
+    - @redirect_maps.each do |map|
+      .row
+        %li
+          .col-xs-2
+            = "(#{map.id}) #{map.src}"
+          .col-xs-10
+            = "#{map.dest}"
+
